@@ -33,8 +33,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="/dashborad">Dashboard</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
             </ul>
         </div>
     </div>

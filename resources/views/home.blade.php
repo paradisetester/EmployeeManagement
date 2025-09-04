@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="display-4 fw-bold">Manage Your Employees Efficiently</h1>
         <p class="lead">A simple and intuitive Employee Management System for small and medium businesses.</p>
-        <a href="#dashboard" class="btn btn-primary btn-lg mt-3">Go to Dashboard</a>
+        <a href="/dashboard" class="btn btn-primary btn-lg mt-3">Go to Dashboard</a>
     </div>
 </section>
 

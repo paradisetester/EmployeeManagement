@@ -27,6 +27,7 @@
         </form>
 
         <p class="mt-3 text-center"><a href="#">Forgot password?</a></p>
+         <p class="mt-3 text-center">Create new account?<a href="/register">Signup</a></p>
     </div>
 </div>
 @endsection
