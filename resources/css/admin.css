@@ -1,0 +1,28 @@
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      min-height: 100vh;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+    }
+    .sidebar .nav-link.active {
+      background-color: #e9f8ef;
+      color: #28a745;
+      font-weight: bold;
+    }
+    .stat-card {
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .leave-card {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .leave-card img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }

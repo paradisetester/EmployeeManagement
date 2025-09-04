@@ -16,7 +16,7 @@ use App\Http\Controllers\RegisterController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('auth');;
 
 // Login routes using AuthController
 Route::get('/login', [AuthController::class,'showLoginForm'])->name('login');

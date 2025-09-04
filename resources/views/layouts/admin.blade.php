@@ -8,6 +8,36 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .sidebar {
+      min-height: 100vh;
+      background-color: #fff;
+      border-right: 1px solid #ddd;
+    }
+    .sidebar .nav-link.active {
+      background-color: #e9f8ef;
+      color: #28a745;
+      font-weight: bold;
+    }
+    .stat-card {
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .leave-card {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .leave-card img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
 <div class="container-fluid">
@@ -36,9 +66,10 @@
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold">Dashboard</h2>
         <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-success">Cache Clear</button>
           <div class="dropdown">
             <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <!--<img src="https://via.placeholder.com/40" alt="profile" class="rounded-circle me-2">-->
+              <img src="https://via.placeholder.com/40" alt="profile" class="rounded-circle me-2">
               <span>Admin</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -114,36 +145,7 @@
     </main>
   </div>
 </div>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .sidebar {
-      min-height: 100vh;
-      background-color: #fff;
-      border-right: 1px solid #ddd;
-    }
-    .sidebar .nav-link.active {
-      background-color: #e9f8ef;
-      color: #28a745;
-      font-weight: bold;
-    }
-    .stat-card {
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .leave-card {
-      border-bottom: 1px solid #eee;
-      padding: 10px 0;
-    }
-    .leave-card img {
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-    }
-  </style>
+
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Chart.js -->
