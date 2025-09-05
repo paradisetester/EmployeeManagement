@@ -8,13 +8,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- FontAwesome Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{asset ('css/admin/style.css') }}" type="text/css" />
 </head>
 <body>
 <div class="container-fluid">
   <div class="row">
-    
+    @include('admin.sidebar')
     <!-- Sidebar -->
-    <nav class="col-md-2 d-none d-md-block sidebar p-3">
+    <!-- <nav class="col-md-2 d-none d-md-block sidebar p-3">
       <h4 class="mb-4 text-success"><i class="fa-solid fa-users"></i> HRM</h4>
       <ul class="nav flex-column">
         <li class="nav-item"><a class="nav-link active" href="#"><i class="fa fa-home"></i> Dashboard</a></li>
@@ -27,7 +28,7 @@
         <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-bullhorn"></i> Notice Board</a></li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-wallet"></i> Payroll</a></li>
       </ul>
-    </nav>
+    </nav> -->
 
     <!-- Main Content -->
     <main class="col-md-10 ms-sm-auto px-4 py-4">
@@ -115,34 +116,7 @@
   </div>
 </div>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .sidebar {
-      min-height: 100vh;
-      background-color: #fff;
-      border-right: 1px solid #ddd;
-    }
-    .sidebar .nav-link.active {
-      background-color: #e9f8ef;
-      color: #28a745;
-      font-weight: bold;
-    }
-    .stat-card {
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .leave-card {
-      border-bottom: 1px solid #eee;
-      padding: 10px 0;
-    }
-    .leave-card img {
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-    }
+
   </style>
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
