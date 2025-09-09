@@ -84,11 +84,9 @@
           <div class="card stat-card p-3">
             <h6>Total Employees</h6>
             <h3>{{ $employees->count() }}</h3>
-          </div>
         </div>
         <!-- Add other stats cards if needed -->
       </div>
-
     </main>
   </div>
 </div>

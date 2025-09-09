@@ -46,6 +46,11 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Reset Password</label>
+                    <input type="text" name="reset_password" class="form-control" placeholder="Enter new password to reset">
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">Phone</label>
                     <input type="text" name="phone" class="form-control" value="{{ old('phone', $employee->phone) }}">
                 </div>

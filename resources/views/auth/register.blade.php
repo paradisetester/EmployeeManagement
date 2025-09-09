@@ -14,7 +14,6 @@
                 </ul>
             </div>
         @endif
-
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

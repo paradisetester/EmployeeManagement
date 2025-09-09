@@ -15,21 +15,6 @@
   <div class="row">
     @include('admin.sidebar')
     <!-- Sidebar -->
-    <!-- <nav class="col-md-2 d-none d-md-block sidebar p-3">
-      <h4 class="mb-4 text-success"><i class="fa-solid fa-users"></i> HRM</h4>
-      <ul class="nav flex-column">
-        <li class="nav-item"><a class="nav-link active" href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-fingerprint"></i> Attendance</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-trophy"></i> Award</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-building"></i> Department</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-users"></i> Employee</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-plane"></i> Leave</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-credit-card"></i> Loan</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-bullhorn"></i> Notice Board</a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-wallet"></i> Payroll</a></li>
-      </ul>
-    </nav> -->
-
     <!-- Main Content -->
     <main class="col-md-10 ms-sm-auto px-4 py-4">
       
@@ -39,12 +24,12 @@
         <div class="d-flex align-items-center gap-3">
           <div class="dropdown">
             <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-              <!--<img src="https://via.placeholder.com/40" alt="profile" class="rounded-circle me-2">-->
+              <img src="https://via.placeholder.com/40" alt="profile" class="rounded-circle me-2">
               <span>Admin</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>
           </div>
         </div>
@@ -52,32 +37,54 @@
       
       <!-- Stats Cards -->
       <div class="row g-3 mb-4">
-        <div class="col-md-3">
-          <div class="card stat-card p-3">
-            <h6>Total Employees</h6>
-            <h3>31</h3>
+        @if(auth()->user()->role === 'employee')
+          <div class="col-md-3">
+            <div class="card stat-card p-3">
+              <h6>This Month Holidays</h6>
+              <h3>5</h3>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card stat-card p-3">
-            <h6>Today Presents</h6>
-            <h3>4</h3>
+          <div class="col-md-3">
+            <div class="card stat-card p-3">
+              <h6>Leave Pending</h6>
+              <h3>2</h3>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card stat-card p-3">
-            <h6>Today Absents</h6>
-            <h3>21</h3>
+          <div class="col-md-6">
+            <div class="card stat-card p-3">
+              <h6>Today Date & Time</h6>
+              <h3 id="currentDateTime"></h3>
+            </div>
           </div>
-        </div>
-        <div class="col-md-3">
-          <div class="card stat-card p-3">
-            <h6>Today Leave</h6>
-            <h3>6</h3>
+        @else
+          <div class="col-md-3">
+            <div class="card stat-card p-3">
+              <h6>Total Employees</h6>
+              <h3>31</h3>
+            </div>
           </div>
-        </div>
+          <div class="col-md-3">
+            <div class="card stat-card p-3">
+              <h6>Today Presents</h6>
+              <h3>4</h3>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card stat-card p-3">
+              <h6>Today Absents</h6>
+              <h3>21</h3>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card stat-card p-3">
+              <h6>Today Leave</h6>
+              <h3>6</h3>
+            </div>
+          </div>
+        @endif
       </div>
       
+      @if(auth()->user()->role !== 'employee')
       <div class="row">
         <!-- Chart Section -->
         <div class="col-md-8">
@@ -111,6 +118,7 @@
           </div>
         </div>
       </div>
+      @endif
       
     </main>
   </div>
@@ -123,6 +131,7 @@
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+  @if(auth()->user()->role !== 'employee')
   const ctx = document.getElementById('attendanceChart');
   new Chart(ctx, {
     type: 'bar',
@@ -152,6 +161,23 @@
       scales: { y: { beginAtZero: true, max: 120 } }
     }
   });
+  @endif
+  
+  @if(auth()->user()->role === 'employee')
+  function updateDateTime() {
+    const now = new Date();
+    const options = { 
+      year: 'numeric', 
+      month: 'short', 
+      day: 'numeric', 
+      hour: '2-digit', 
+      minute: '2-digit'
+    };
+    document.getElementById('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+  }
+  updateDateTime();
+  setInterval(updateDateTime, 60000);
+  @endif
 </script>
 </body>
 </html>
