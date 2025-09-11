@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AttendanceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +37,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('employees', EmployeeController::class)->except(['show']);
     Route::get('/profile', [ProfileController::class, 'show'])->name('employee.show');
     Route::put('/profile', [ProfileController::class, 'update'])->name('employee.update');
+    
+    Route::get('/attendance', function() {
+        return auth()->user()->role === 'admin' 
+            ? app(AttendanceController::class)->adminIndex(request())
+            : app(AttendanceController::class)->index();
+    })->name('attendance.index');
+    Route::post('/attendance/checkin', [AttendanceController::class, 'checkIn'])->name('attendance.checkin');
+    Route::post('/attendance/checkout', [AttendanceController::class, 'checkOut'])->name('attendance.checkout');
 });
 
 // use App\Http\Controllers\ProfileController;
